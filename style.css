@@ -51,7 +51,7 @@ body{
     font-weight: bold;
  }
 
- @media screen and (max-width: 320px) {
+ @media screen and (max-width: 513px) {
     .button {
         padding: 10px;
     }
