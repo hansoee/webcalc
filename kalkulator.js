@@ -1,1 +1,1 @@
-console.log("Selamat Anda berhasil menggunakan JavaScript")
+console.log("Selamat Anda berhasil menggunakan JavaScript");
