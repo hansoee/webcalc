@@ -6,7 +6,7 @@ const calculator = {
 }; /*ngedefinisikan variabel*/
 
 function updateDisplay(){
-    document.querySelector("#displayNumber").tampilanTeks = calculator.displayNumber;
+    document.querySelector("#displayNumber").innerHTML = calculator.displayNumber;
 } /*ngubah tampilan display*/
 
 function clearCalculator(){
@@ -17,16 +17,34 @@ function clearCalculator(){
 }
 
 function inputAngka(angka){ /*user input angka*/
-    calculator.displayNumber += angka; /*ngejelasin fungsi ini
+    if(calculator.displayNumber!=0){
+        calculator.displayNumber += angka;
+    }else{
+        calculator.displayNumber = angka;
+    }
+     /*ngejelasin fungsi ini
     yaitu ngubah tampilan display pas dapet input*/
+    
 }
 
-const buttons = document.querySelectorAll/*returns semua matches*/(".button");
-for (let button of buttons)/*looping nilai utk kasi even klik di tiap buton*/ {
+
+window.addEventListener("load", function () {
+    
+    const buttons = document.querySelectorAll/*returns semua matches*/(".button");
+    for (let button of buttons)/*looping nilai utk kasi even klik di tiap buton*/ {
     button.addEventListener('click', function(event){
         //dapetin objek elemen yg diklik
-        const target = event.target;
-        inputAngka(target.tampilanTeks);
-        updateDisplay()
+        
+
+        const b = event.target;
+        
+        var in_user = b.innerHTML
+        if(in_user=="CE"){
+            calculator.displayNumber = 0;
+        }else{
+            inputAngka(in_user);
+        }
+        updateDisplay();
     });
 }
+});
